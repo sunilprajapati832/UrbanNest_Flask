@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block title %}{{ property.title }} – UrbanNest{% endblock %}
+{% block content %}
+
+<!-- ================= Property Hero ================= -->
+<section class="property-hero">
+  <div class="container">
+
+    <div class="row g-4">
+
+      <!-- ===== Image Gallery ===== -->
+      <div class="col-lg-7">
+        <div class="property-gallery">
+
+          {% if property.images %}
+            <img class="main-image"
+                 src="{{ url_for('static', filename='uploads/' + property.images[0].image_path) }}"
+                 alt="{{ property.title }}">
+          {% else %}
+            <img class="main-image"
+                 src="https://placehold.co/800x500?text=No+Image"
+                 alt="No Image">
+          {% endif %}
+
+        </div>
+      </div>
+
+      <!-- ===== Summary Card ===== -->
+      <div class="col-lg-5">
+        <div class="property-summary-card">
+
+          <span class="property-badge">
+            {{ property.property_type }} • {{ property.listing_type }}
+          </span>
+
+          {% if property.is_verified %}
+          <span class="badge bg-success ms-2">Verified</span>
+          {% endif %}
+
+          <h1 class="property-title mt-2">{{ property.title }}</h1>
+
+          <p class="property-location">
+            <i class="fas fa-map-marker-alt me-1"></i>
+            {{ property.city }}
+          </p>
+
+          <div class="property-price-lg">
+            ₹ {{ "{:,.0f}".format(property.price) }}
+          </div>
+
+          <!-- ===== Feature Grid ===== -->
+          <div class="property-feature-grid">
+            <div><i class="fas fa-bed"></i> {{ property.bedrooms }} Beds</div>
+            <div><i class="fas fa-bath"></i> {{ property.bathrooms }} Baths</div>
+            <div><i class="fas fa-vector-square"></i> {{ property.area_sqft }} Sqft</div>
+          </div>
+
+          <!-- ===== Owner / Admin Actions ===== -->
+          {% if current_user.is_authenticated and
+                (current_user.role == 'admin' or current_user.id == property.owner_id) %}
+          <div class="property-admin-actions">
+            <a href="{{ url_for('property.update_property', id=property.id) }}"
+               class="btn btn-outline-primary btn-sm">Edit</a>
+
+            <a href="{{ url_for('property.delete_property', id=property.id) }}"
+               class="btn btn-outline-danger btn-sm"
+               onclick="return confirm('Delete this property?')">
+              Delete
+            </a>
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= Property Details ================= -->
+<section class="property-details-section">
+  <div class="container">
+
+    <div class="row g-5">
+
+      <!-- ===== Description ===== -->
+      <div class="col-lg-8">
+        <div class="property-content-card">
+
+          <h3 class="section-title">Property Description</h3>
+
+          <p class="property-description">
+            {{ property.description or "No description provided." }}
+          </p>
+
+          <hr>
+
+          <h4 class="section-subtitle">Property Overview</h4>
+
+          <ul class="overview-list">
+            <li><strong>City:</strong> {{ property.city }}</li>
+            <li><strong>Type:</strong> {{ property.property_type }}</li>
+            <li><strong>Listing:</strong> {{ property.listing_type }}</li>
+            <li><strong>Price:</strong> ₹ {{ "{:,.0f}".format(property.price) }}</li>
+          </ul>
+
+        </div>
+      </div>
+
+      <!-- ===== Contact / CTA ===== -->
+      <div class="col-lg-4">
+        <div class="contact-card">
+
+          <h4>Interested in this property?</h4>
+          <p class="text-muted small">
+            Contact the owner directly for more details.
+          </p>
+
+          <!-- Phone visible to all -->
+          {% if property.owner.phone %}
+          <div class="mb-2 text-center fw-bold">
+            <i class="fas fa-phone me-1"></i>
+            {{ property.owner.phone }}
+          </div>
+          {% endif %}
+
+          <a href="mailto:{{ property.owner.email }}"
+             class="btn btn-primary w-100 mb-2">
+            <i class="fas fa-envelope me-2"></i>Email Owner
+          </a>
+
+          <p class="small text-muted text-center mt-2">
+            Powered by <strong>UrbanNest</strong>
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

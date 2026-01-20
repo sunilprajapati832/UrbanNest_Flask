@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <h3 class="fw-bold text-primary">Create Account</h3>
+                        <p class="text-muted small">Join UrbanNest today.</p>
+                    </div>
+
+                    <form method="POST" novalidate>
+                        {{ form.hidden_tag() }}
+                        <div class="row g-3">
+                            <div class="col-12 form-floating">
+                                {{ form.name(class="form-control", placeholder="Name") }}
+                                {{ form.name.label(class="text-muted ps-4") }}
+                            </div>
+                            <div class="col-md-6 form-floating">
+                                {{ form.email(class="form-control", placeholder="Email") }}
+                                {{ form.email.label(class="text-muted ps-4") }}
+                            </div>
+                            <div class="col-md-6 form-floating">
+                                {{ form.phone(class="form-control", placeholder="Phone") }}
+                                {{ form.phone.label(class="text-muted ps-4") }}
+                            </div>
+                            <div class="col-md-6 form-floating">
+                                {{ form.password(class="form-control", placeholder="Password") }}
+                                {{ form.password.label(class="text-muted ps-4") }}
+                            </div>
+                            <div class="col-md-6 form-floating">
+                                {{ form.confirm_password(class="form-control", placeholder="Confirm") }}
+                                {{ form.confirm_password.label(class="text-muted ps-4") }}
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-bold text-muted">I want to</label>
+                                {{ form.role(class="form-select py-3") }}
+                            </div>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            {{ form.submit(class="btn btn-primary btn-lg py-3") }}
+                        </div>
+                    </form>
+
+                    <div class="text-center pt-4 mt-2 border-top">
+                        <p class="small text-muted mb-0">Already have an account? <a href="{{ url_for('auth.login') }}" class="fw-bold text-primary">Login here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

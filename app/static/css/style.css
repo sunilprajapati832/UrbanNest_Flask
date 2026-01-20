@@ -1,0 +1,427 @@
+/* ================================
+   UrbanNest – 2026 Design System
+   ================================ */
+
+:root {
+  --brand-primary: #2563eb;
+  --brand-accent: #f59e0b;
+
+  --glass-bg: rgba(15, 23, 42, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --bg-soft: #f6f8fb;
+  --bg-card: #ffffff;
+
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #e5e7eb;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.12);
+
+  --transition: all 0.25s ease;
+}
+
+/* ================================
+   Base
+   ================================ */
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* ================================
+   Glass Bars (Header + Footer)
+   ================================ */
+
+.glass-bar {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* ================================
+   Navbar
+   ================================ */
+
+.navbar {
+  padding: 0.8rem 1.2rem;
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--text-light) !important;
+}
+
+.nav-link:hover {
+  color: var(--brand-primary) !important;
+}
+
+/* ================================
+   Branding
+   ================================ */
+
+.brand-flex {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.brand-logo {
+  height: 36px;
+}
+
+.brand-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 2.1;
+  color: var(--text-light);
+  padding-top: 0 px;
+}
+
+/* ================================
+   Footer
+   ================================ */
+
+.site-footer {
+  color: var(--text-light);
+  padding: 3.5rem 0 2rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.site-footer a {
+  color: #cbd5f5;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--brand-accent);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--glass-border);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.75;
+}
+
+/* ================================
+   Utilities
+   ================================ */
+
+.shadow-soft { box-shadow: var(--shadow-sm); }
+.rounded-4 { border-radius: var(--radius-lg); }
+
+
+/* ================================
+   Home – Hero Section
+   ================================ */
+
+.home-hero {
+  background: linear-gradient(135deg, rgba(15,23,42,0.92), rgba(15,23,42,0.85)),
+              url('https://images.unsplash.com/photo-1568605114967-8130f3a36994') center/cover no-repeat;
+  padding: 6rem 0 5rem;
+  border-radius: 0 0 32px 32px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  max-width: 520px;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.hero-search {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 16px;
+}
+
+.section-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+/* ================================
+   Phase 3 – Property Listing Polish
+   ================================ */
+
+.listing-header {
+  padding: 3.5rem 0 2.5rem;
+  background: linear-gradient(
+    rgba(15,23,42,0.85),
+    rgba(15,23,42,0.85)
+  );
+  color: #fff;
+  border-radius: 0 0 32px 32px;
+}
+
+.listing-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.listing-subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* ================= Property Card ================= */
+
+.property-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+}
+
+.property-image {
+  position: relative;
+  height: 220px;
+}
+
+.property-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.property-price {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(15,23,42,0.85);
+  color: #fff;
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 999px;
+}
+
+/* ================= Content ================= */
+
+.property-body {
+  padding: 1.4rem;
+}
+
+.property-meta {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+}
+
+.property-title {
+  margin: .4rem 0;
+  font-weight: 700;
+}
+
+.property-title a {
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.property-title a:hover {
+  color: var(--brand-primary);
+}
+
+.property-location {
+  font-size: .85rem;
+  color: var(--text-muted);
+  margin-bottom: .8rem;
+}
+
+/* ================= Features ================= */
+
+.property-features {
+  display: flex;
+  justify-content: space-between;
+  padding-top: .8rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: .8rem;
+  color: #475569;
+}
+
+/* ================= Actions ================= */
+
+.property-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: .5rem;
+}
+
+/* ================================
+   Phase 4 – Property Detail Page
+   ================================ */
+
+.property-hero {
+  padding: 3.5rem 0;
+  background: linear-gradient(
+    rgba(15,23,42,0.88),
+    rgba(15,23,42,0.88)
+  );
+  color: #fff;
+}
+
+.property-gallery {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.property-gallery .main-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+/* ===== Summary Card ===== */
+
+.property-summary-card {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 2rem;
+  border-radius: 22px;
+  box-shadow: var(--shadow-md);
+}
+
+.property-badge {
+  display: inline-block;
+  background: rgba(15,23,42,0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 700;
+  margin-bottom: .8rem;
+}
+
+.property-summary-card .property-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+.property-location {
+  font-size: .9rem;
+  color: #475569;
+}
+
+.property-price-lg {
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin: 1rem 0;
+  color: var(--brand-primary);
+}
+
+/* ===== Feature Grid ===== */
+
+.property-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .8rem;
+  font-size: .85rem;
+  margin-bottom: 1.2rem;
+}
+
+.property-feature-grid div {
+  background: #f8fafc;
+  padding: .8rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ===== Admin ===== */
+
+.property-admin-actions {
+  display: flex;
+  gap: .6rem;
+}
+
+/* ================= Details Section ================= */
+
+.property-details-section {
+  padding: 4rem 0;
+}
+
+.property-content-card {
+  background: #fff;
+  padding: 2.2rem;
+  border-radius: 22px;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-weight: 700;
+  margin-top: 1.2rem;
+}
+
+.property-description {
+  color: #475569;
+  line-height: 1.7;
+}
+
+/* ===== Overview ===== */
+
+.overview-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.overview-list li {
+  padding: .4rem 0;
+  font-size: .9rem;
+}
+
+/* ================= Contact Card ================= */
+
+.contact-card {
+  position: sticky;
+  top: 100px;
+  background: #ffffff;
+  padding: 1.8rem;
+  border-radius: 22px;
+  box-shadow: var(--shadow-md);
+}
+
+.contact-card .btn-outline-primary {
+  font-weight: 600;
+  border-radius: 999px;
+}

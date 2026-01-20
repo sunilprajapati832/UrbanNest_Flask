@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block title %}Browse Properties – UrbanNest{% endblock %}
+{% block content %}
+
+<!-- ================= Property Listing Header ================= -->
+<section class="listing-header">
+  <div class="container text-center">
+    <h1 class="listing-title">Browse Verified Properties</h1>
+    <p class="listing-subtitle">
+      Buy • Rent • Invest smarter with UrbanNest
+    </p>
+  </div>
+</section>
+
+<div class="container my-5">
+
+  <!-- ================= Filter Card ================= -->
+  <div class="card border-0 shadow-soft mb-5 rounded-4">
+    <div class="card-body p-4 bg-white">
+      <form class="row g-3" method="GET">
+
+        <div class="col-lg-3 col-md-6">
+          <label class="form-label small fw-bold text-muted">City</label>
+          <input name="city" type="text"
+                 class="form-control bg-soft border-0"
+                 placeholder="Enter city"
+                 value="{{ request.args.city }}">
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <label class="form-label small fw-bold text-muted">Property Type</label>
+          <select name="property_type" class="form-select bg-soft border-0">
+            <option value="">Any</option>
+            <option value="Flat" {% if request.args.property_type=='Flat' %}selected{% endif %}>Flat</option>
+            <option value="House" {% if request.args.property_type=='House' %}selected{% endif %}>House</option>
+            <option value="Plot" {% if request.args.property_type=='Plot' %}selected{% endif %}>Plot</option>
+          </select>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <label class="form-label small fw-bold text-muted">Listing Type</label>
+          <select name="listing_type" class="form-select bg-soft border-0">
+            <option value="">Any</option>
+            <option value="Rent" {% if request.args.listing_type=='Rent' %}selected{% endif %}>Rent</option>
+            <option value="Sell" {% if request.args.listing_type=='Sell' %}selected{% endif %}>Buy</option>
+          </select>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <label class="form-label small fw-bold text-muted">Budget (₹)</label>
+          <div class="input-group">
+            <input name="min_price" type="number"
+                   class="form-control bg-soft border-0"
+                   placeholder="Min"
+                   value="{{ request.args.min_price }}">
+            <span class="input-group-text bg-soft border-0">–</span>
+            <input name="max_price" type="number"
+                   class="form-control bg-soft border-0"
+                   placeholder="Max"
+                   value="{{ request.args.max_price }}">
+          </div>
+        </div>
+
+        <div class="col-lg-2 d-flex align-items-end">
+          <button class="btn btn-primary w-100">
+            <i class="fas fa-filter me-2"></i>Apply
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ================= Property Cards ================= -->
+  {% if properties %}
+  <div class="row g-4">
+
+    {% for prop in properties %}
+    <div class="col-xl-4 col-lg-4 col-md-6">
+      <div class="property-card h-100">
+
+        <!-- Image -->
+        <div class="property-image">
+          {% if prop.images %}
+            <img src="{{ url_for('static', filename='uploads/' + prop.images[0].image_path) }}"
+                 alt="{{ prop.title }}">
+          {% else %}
+            <img src="https://placehold.co/600x400?text=No+Image" alt="No Image">
+          {% endif %}
+
+          <span class="property-price">
+            ₹ {{ "{:,.0f}".format(prop.price) }}
+          </span>
+        </div>
+
+        <!-- Content -->
+        <div class="property-body">
+          <span class="property-meta">
+            {{ prop.property_type }} • {{ prop.listing_type }}
+          </span>
+
+          <h5 class="property-title">
+            <a href="{{ url_for('property.property_detail', id=prop.id) }}">
+              {{ prop.title }}
+            </a>
+          </h5>
+
+          <p class="property-location">
+            <i class="fas fa-map-marker-alt me-1"></i> {{ prop.city }}
+          </p>
+
+          <div class="property-features">
+            <span><i class="fas fa-bed"></i> {{ prop.bedrooms }}</span>
+            <span><i class="fas fa-bath"></i> {{ prop.bathrooms }}</span>
+            <span><i class="fas fa-vector-square"></i> {{ prop.area_sqft }}</span>
+          </div>
+
+          {% if current_user.is_authenticated and (current_user.role == 'admin' or current_user.id == prop.owner_id) %}
+          <div class="property-actions">
+            <a href="{{ url_for('property.update_property', id=prop.id) }}" class="btn btn-sm btn-light">Edit</a>
+            <a href="{{ url_for('property.delete_property', id=prop.id) }}"
+               class="btn btn-sm btn-light text-danger"
+               onclick="return confirm('Delete this property?')">Delete</a>
+          </div>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+  {% else %}
+  <div class="text-center py-5">
+    <h4 class="text-muted">No properties match your filters.</h4>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}

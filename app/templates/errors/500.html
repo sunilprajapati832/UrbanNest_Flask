@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}500 – Server Error | UrbanNest{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5">
+  <h1 class="display-4 fw-bold text-danger">500</h1>
+  <p class="fs-4 mt-3">Something went wrong.</p>
+
+  <p class="text-muted mb-4">
+    Our team is working to fix the issue. Please try again later.
+  </p>
+
+  <a href="{{ url_for('main.home') }}" class="btn btn-secondary btn-lg">
+    Return Home
+  </a>
+</div>
+{% endblock %}

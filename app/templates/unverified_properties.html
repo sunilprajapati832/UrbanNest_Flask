@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2 class="fw-bold">Pending Property Verifications</h2>
+<span class="badge bg-danger rounded-pill px-3 py-2">
+{{ properties|length }} Pending
+</span>
+</div>
+
+{% if properties %}
+<div class="card shadow-sm border-0">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th class="ps-4">Property Title</th>
+                    <th>Owner Details</th>
+                    <th>Location</th>
+                    <th>Price (₹)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prop in properties %}
+                <tr>
+                    <td class="ps-4">
+                        <a href="{{ url_for('property.property_detail', id=prop.id) }}" class="fw-bold text-decoration-none text-dark">
+                            {{ prop.title }}
+                        </a>
+                    </td>
+                    <td>
+                        <div class="d-flex flex-column">
+                            <span class="fw-semibold">{{ prop.owner.name }}</span>
+                            <small class="text-muted">{{ prop.owner.email }}</small>
+                        </div>
+                    </td>
+                    <td>{{ prop.city }}, {{ prop.state }}</td>
+                    <td class="fw-bold text-primary">₹ {{ "{:,}".format(prop.price) }}</td>
+                    <td class="text-center">
+                        <div class="btn-group btn-group-sm">
+                            <a href="{{ url_for('property.verify_property', id=prop.id) }}"
+                               class="btn btn-success"
+                               onclick="return confirm('Approve this property? It will become visible to all users.')">
+                                <i class="fas fa-check me-1"></i> Approve
+                            </a>
+                            <a href="{{ url_for('property.delete_property', id=prop.id) }}"
+                               class="btn btn-outline-danger"
+                               onclick="return confirm('Reject and delete this property? This action cannot be undone.')">
+                                <i class="fas fa-times me-1"></i> Reject
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="text-center py-5 bg-white rounded shadow-sm">
+    <i class="fas fa-clipboard-check fa-3x text-muted mb-3"></i>
+    <h4 class="text-muted">No properties pending verification.</h4>
+    <p class="text-muted mb-0">Great job! All listings have been processed.</p>
+</div>
+{% endif %}
+
+
+</div>
+
+{% endblock %}

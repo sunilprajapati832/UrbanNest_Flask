@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container d-flex flex-column align-items-center justify-content-center" style="min-height: 70vh;">
+    <div class="text-center">
+        <h1 class="display-1 fw-bold text-primary" style="font-size: 8rem;">404</h1>
+        <h2 class="h2 mb-4">Page Not Found</h2>
+        <p class="text-muted lead mb-5">
+            The property or page you are looking for might have been moved or removed.
+        </p>
+
+        <div class="d-flex gap-3 justify-content-center">
+            <a href="{{ url_for('main.home') }}" class="btn btn-primary px-4 py-2 rounded-pill">
+                <i class="fas fa-home me-2"></i> Go Home
+            </a>
+            <a href="{{ url_for('property.property_list') }}" class="btn btn-outline-primary px-4 py-2 rounded-pill">
+                <i class="fas fa-search me-2"></i> Browse Properties
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %}UrbanNest – Find Your Next Home{% endblock %}
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+<section class="home-hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7 text-white">
+        <h1 class="hero-title">Smart Way To Find<br>Your Next Home</h1>
+        <p class="hero-subtitle">
+          Buy, sell or rent premium properties across India with a modern,
+          verified and trusted real‑estate platform.
+        </p>
+
+        <form class="hero-search" method="GET" action="{{ url_for('property.property_list') }}">
+          <div class="row g-2">
+            <div class="col-md-5">
+              <input type="text" name="city" class="form-control" placeholder="Enter city (e.g. Mumbai)">
+            </div>
+            <div class="col-md-4">
+              <select name="listing_type" class="form-select">
+                <option value="">Buy or Rent</option>
+                <option value="Sell">Buy</option>
+                <option value="Rent">Rent</option>
+              </select>
+            </div>
+            <div class="col-md-3 d-grid">
+              <button class="btn btn-warning fw-bold">
+                <i class="fas fa-search me-1"></i> Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LATEST PROPERTIES ================= -->
+<section class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="section-title">Latest Properties</h2>
+    <a href="{{ url_for('property.property_list') }}" class="fw-semibold">View All →</a>
+  </div>
+
+  {% if properties %}
+  <div class="row g-4">
+    {% for prop in properties %}
+    <div class="col-lg-4 col-md-6">
+      <div class="card h-100 hover-up">
+        <div class="position-relative">
+          {% if prop.images %}
+            <img src="{{ url_for('static', filename='uploads/' + prop.images[0].image_path) }}"
+                 class="card-img-top" style="height:220px; object-fit:cover;">
+          {% else %}
+            <img src="https://placehold.co/600x400?text=No+Image" class="card-img-top">
+          {% endif %}
+          <span class="badge bg-dark position-absolute top-0 end-0 m-3">₹ {{ '{:,.0f}'.format(prop.price) }}</span>
+        </div>
+
+        <div class="card-body">
+          <small class="text-primary fw-bold">{{ prop.property_type }} • {{ prop.listing_type }}</small>
+          <h5 class="fw-bold mt-2 text-truncate">
+            <a href="{{ url_for('property.property_detail', id=prop.id) }}" class="stretched-link text-dark text-decoration-none">
+              {{ prop.title }}
+            </a>
+          </h5>
+          <p class="text-muted small"><i class="fas fa-map-marker-alt"></i> {{ prop.city }}</p>
+
+          <div class="d-flex justify-content-between small text-muted border-top pt-3">
+            <span>{{ prop.bedrooms }} BHK</span>
+            <span>{{ prop.area_sqft }} sqft</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p class="text-center text-muted">No properties available.</p>
+  {% endif %}
+</section>
+
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white p-4">
+                    <h3 class="fw-bold mb-0 text-white">List Your Property</h3>
+                </div>
+
+                <div class="card-body p-5">
+                    <form method="POST" enctype="multipart/form-data">
+                        <!-- Basic Info -->
+                        <h6 class="text-uppercase text-secondary fw-bold mb-3 small">Details</h6>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="title" class="form-control" id="title" required>
+                            <label for="title">Property Title</label>
+                        </div>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Price (₹)</label>
+                                <input type="number" name="price" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Area (sqft)</label>
+                                <input type="number" name="area_sqft" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Type</label>
+                                <select name="property_type" class="form-select">
+                                    <option>Flat</option>
+                                    <option>House</option>
+                                    <option>Plot</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">For</label>
+                                <select name="listing_type" class="form-select">
+                                    <option>Sell</option>
+                                    <option>Rent</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <h6 class="text-uppercase text-secondary fw-bold mb-3 small border-top pt-3">Location</h6>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">State</label>
+                                <select name="state" id="state" class="form-select" required>
+                                    <option value="">Select State</option>
+                                    {% for st in ["Delhi","Maharashtra","Gujarat","Rajasthan","Uttar Pradesh","Karnataka","Tamil Nadu"] %}
+                                        <option value="{{ st }}">{{ st }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">City</label>
+                                <select name="city" id="city" class="form-select" required>
+                                    <option value="">Select City First</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="text" name="address" class="form-control" id="addr">
+                            <label for="addr">Full Address</label>
+                        </div>
+
+                        <!-- Features -->
+                        <h6 class="text-uppercase text-secondary fw-bold mb-3 small border-top pt-3">Features & Images</h6>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Bedrooms</label>
+                                <input type="number" name="bedrooms" class="form-control" value="2">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold">Bathrooms</label>
+                                <input type="number" name="bathrooms" class="form-control" value="2">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Description</label>
+                            <textarea name="description" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold">Upload Images</label>
+                            <input type="file" name="images" class="form-control" multiple>
+                        </div>
+
+                        <div class="d-grid">
+                            <button class="btn btn-primary btn-lg">Submit Property</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const stateCities = {
+        "Delhi": ["New Delhi", "Dwarka", "Saket"],
+        "Maharashtra": ["Mumbai", "Pune"],
+        "Gujarat": ["Ahmedabad", "Surat"],
+        "Rajasthan": ["Jaipur", "Jodhpur"],
+        "Uttar Pradesh": ["Noida", "Lucknow"],
+        "Karnataka": ["Bengaluru", "Mysuru"],
+        "Tamil Nadu": ["Chennai", "Coimbatore"]
+    };
+    const stateSelect = document.getElementById("state");
+    const citySelect = document.getElementById("city");
+
+    stateSelect.addEventListener("change", function () {
+        citySelect.innerHTML = '<option value="">Select City</option>';
+        (stateCities[this.value] || []).forEach(city => {
+            const opt = document.createElement("option");
+            opt.value = city;
+            opt.textContent = city;
+            citySelect.appendChild(opt);
+        });
+    });
+});
+</script>
+{% endblock %}
