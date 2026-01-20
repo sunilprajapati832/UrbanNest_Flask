@@ -1,13 +1,10 @@
 # 🏡 UrbanNest – Full‑Stack Property Listing Platform (Flask)
 
 UrbanNest is a **modern, full‑stack real estate web application** built using **Python, Flask, SQLAlchemy, Jinja2, HTML, CSS, and JavaScript**. The platform enables users to **buy, sell, and rent properties**, with role‑based access control, authentication, admin approval workflows, and a clean UI suitable for **2026‑level portfolio showcasing**.
-
 This project is designed with **production‑grade architecture** and deployed live on **Render** using **Gunicorn**.
 
 🔗 **Live Demo**: <br>
 [![Live Website](https://img.shields.io/badge/Live%20Website-UrbanNest-success?style=for-the-badge&logo=google-chrome&logoColor=white)](https://urbannest-m1ix.onrender.com)
-
----
 
 ## 🚀 Key Features
 
