@@ -307,7 +307,7 @@ Ideal for:
 
 ## 👨‍💻 Author
 
-**Sunil Prajapati**
+**Sunil Prajapati**<br>
 M.Tech Graduate | Python & Flask Developer <br>
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow%20Me-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/sunil-prajapati832)
 
