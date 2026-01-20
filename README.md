@@ -4,9 +4,10 @@ UrbanNest is a **modern, full‑stack real estate web application** built using 
 
 This project is designed with **production‑grade architecture** and deployed live on **Render** using **Gunicorn**.
 
-🔗 **Live Demo**: [https://urbannest-m1ix.onrender.com](https://urbannest-m1ix.onrender.com)
+🔗 **Live Demo**: 
 [![Live Website](https://img.shields.io/badge/Live%20Website-UrbanNest-success?style=for-the-badge&logo=google-chrome&logoColor=white)](https://urbannest-m1ix.onrender.com)
 
+<br> [https://urbannest-m1ix.onrender.com](https://urbannest-m1ix.onrender.com)
 ---
 
 ## 🚀 Key Features
