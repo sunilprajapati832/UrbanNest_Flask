@@ -130,10 +130,6 @@ if __name__ == "__main__":
 | Hosting  | Render        |
 | Database | SQLite (demo) |
 
-![Graph Preview](app/static/images/UrbanNestWebsite1.png)
-![Graph Preview](app/static/images/UrbanNestWebsite1.png)
-![Graph Preview](app/static/images/UrbanNestWebsite1.png)
-
 ## 👨‍💻 Author
 
 **Sunil Prajapati**<br>
