@@ -6,6 +6,12 @@ This project is designed with **production‑grade architecture** and deployed l
 🔗 **Live Demo**: <br>
 [![Live Website](https://img.shields.io/badge/Live%20Website-UrbanNest-success?style=for-the-badge&logo=google-chrome&logoColor=white)](https://urbannest-m1ix.onrender.com)
 
+## Application Preview
+![Graph Preview](app/static/images/UrbanNestWebsite1.png)
+![Graph Preview](app/static/images/UrbanNestWebsite2.png)
+![Graph Preview](app/static/images/UrbanNestWebsite3.png)
+![Graph Preview](app/static/images/UrbanNestWebsite4.png)
+
 ## 🚀 Key Features
 
 | **🔐 Authentication & Authorization**      |**🏘️ Property Management**          |**🧑‍💼 Admin Dashboard**| **🎨 UI / UX**                  |**⚙️ Backend Architecture**         | **☁️ Deployment**       | 
@@ -124,11 +130,6 @@ if __name__ == "__main__":
 | Hosting  | Render        |
 | Database | SQLite (demo) |
 
-## Application Preview
-![Graph Preview](app/static/images/UrbanNestWebsite1.png)
-![Graph Preview](app/static/images/UrbanNestWebsite2.png)
-![Graph Preview](app/static/images/UrbanNestWebsite3.png)
-![Graph Preview](app/static/images/UrbanNestWebsite4.png)
 ![Graph Preview](app/static/images/UrbanNestWebsite1.png)
 ![Graph Preview](app/static/images/UrbanNestWebsite1.png)
 ![Graph Preview](app/static/images/UrbanNestWebsite1.png)
