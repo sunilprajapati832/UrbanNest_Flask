@@ -79,7 +79,15 @@ UrbanNest_Flask/
 ```
 ---
 
-## 🧠 Core Files & Their Responsibilities
+## 🧠 Core Files & Their Responsibilities 
+
+| **`run.py`** |**`app/__init__.py`**   |**`config.py`**  | **`models.py`**  |**`auth.py`** | **`forms.py`**  |**`main.py`**   | **`property.py`**  |
+|------------- | ---------------------- | ----------------|------------------|---------------------|----------------------|-----------------------|---------------------------|
+|Entry point for Gunicorn and local development|Application factory pattern|Manages environment‑specific configuration:|Defines database schema using SQLAlchemy ORM.|Handles:User registration, User login, Logout|WTForms for: LoginForm, RegisterForm |Home page|Features: Add property, Edit property, Delete property, Property detail page|
+|Ensures compatibility with production WSGI servers|Initialize extensions (SQLAlchemy, LoginManager)|* SECRET_KEY|* `User` :id, username, email, password_hash, role |Uses: Flask‑Login, Secure redirects|Includes: Field validation, Email verification |Displays latest **approved properties only**| Security: Login required, Ownership checks |
+||Register blueprints|* DATABASE_URI|* `Property`: id, title, description, price, category, image, approved, user_id (FK)||* PropertyForm * Image validation|||
+||`create_app()` → returns Flask app instance|* DEBUG flag||||||
+|||* Upload folder paths||||||
 
 ### 🔹 `run.py`
 
