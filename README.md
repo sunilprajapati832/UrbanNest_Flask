@@ -127,7 +127,7 @@ if __name__ == "__main__":
 ## Application Preview
 ![Graph Preview](app/static/images/UrbanNestWebsite1.png)
 ![Graph Preview](app/static/images/UrbanNestWebsite2.png)
-![Graph Preview](app/static/images/UrbanNestWebsite1.png)
+![Graph Preview](app/static/images/UrbanNestWebsite3.png)
 ![Graph Preview](app/static/images/UrbanNestWebsite1.png)
 ![Graph Preview](app/static/images/UrbanNestWebsite1.png)
 ![Graph Preview](app/static/images/UrbanNestWebsite1.png)
