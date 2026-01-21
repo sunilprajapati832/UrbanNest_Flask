@@ -96,7 +96,11 @@ UrbanNest_Flask/
 │   │   ├───unverified_properties.html
 │   │   ├───update_property.html
 │   │   ├───view_property.html
-│                     
+│   │   ├───errors
+│   │   │   ├──403.html
+│   │   │   ├──404.html
+│   │   │   ├──405.html
+│                      
 │           
 ├───instance
 │       ├───urbannest.db     # SQLite database (local/demo)
