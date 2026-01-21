@@ -111,21 +111,6 @@ if __name__ == "__main__":
 |||* Backend / Full‑Stack roles||
 |||* Python / Flask developer positions||
 
-
-
-
-
-
-
-
-## 🎨 Templates & UI
-
-* `base.html` → global layout
-* Block inheritance using Jinja2
-* Modular components for navbar & footer
-
----
-
 ## ⚙️ Tech Stack
 
 | Layer    | Technology    |
@@ -138,44 +123,6 @@ if __name__ == "__main__":
 | Server   | Gunicorn      |
 | Hosting  | Render        |
 | Database | SQLite (demo) |
-
----
-
-## 📦 Deployment Notes
-
-* Free‑tier Render deployment
-* Cold start delay expected
-* Environment variables used for security
-
----
-
-## 🎯 Why This Project Matters
-
-This project demonstrates:
-
-* Real‑world Flask architecture
-* Secure authentication flows
-* Full CRUD lifecycle
-* Deployment readiness
-* UI/UX sensibility
-* Scalable design principles
-
-Ideal for:
-
-* Backend / Full‑Stack roles
-* Python / Flask developer positions
-
----
-
-## 📌 Future Enhancements
-
-* PostgreSQL migration
-* Advanced search & filters
-* Map integration
-* Payment gateway
-* API versioning
-
----
 
 ## 👨‍💻 Author
 
