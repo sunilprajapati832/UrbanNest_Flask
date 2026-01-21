@@ -133,7 +133,7 @@ if __name__ == "__main__":
 ## 👨‍💻 Author
 
 **Sunil Prajapati**<br>
-M.Tech Graduate | Python & Flask Developer <br>
+M.E. Graduate | Python & Flask Developer <br>
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow%20Me-blue?logo=linkedin&style=for-the-badge)](https://www.linkedin.com/in/sunil-prajapati832)
 
 ---
