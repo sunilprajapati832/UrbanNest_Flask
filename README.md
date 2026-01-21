@@ -98,6 +98,26 @@ if __name__ == "__main__":
     app.run()
 ```
 
+| **🎨 Templates & UI** |**📦 Deployment Notes**   |**🎯 Why This Project Matters**  | **📌 Future Enhancements**  |
+|------------- | ---------------------- | ----------------|------------------|
+|* `base.html` → global layout|* Free‑tier Render deployment|This project demonstrates:|* PostgreSQL migration|
+|* Block inheritance using Jinja2|* Cold start delay expected|* Real‑world Flask architecture|* Advanced search & filters|
+|* Modular components for navbar & footer|* Environment variables used for security|* Secure authentication flows|* Map integration|
+|||* Full CRUD lifecycle|* Payment gateway|
+|||* Deployment readiness|* API versioning|
+|||* UI/UX sensibility||
+|||* Scalable design principles||
+|||Ideal for:||
+|||* Backend / Full‑Stack roles||
+|||* Python / Flask developer positions||
+
+
+
+
+
+
+
+
 ## 🎨 Templates & UI
 
 * `base.html` → global layout
