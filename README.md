@@ -117,6 +117,8 @@ UrbanNest_Flask/
 ```python
 from app import create_app
 app = create_app()
+if __name__ == "__main__":
+    app.run()
 ```
 
 * Entry point for Gunicorn and local development
