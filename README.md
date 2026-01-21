@@ -124,6 +124,9 @@ if __name__ == "__main__":
 | Hosting  | Render        |
 | Database | SQLite (demo) |
 
+## Application Preview
+![Graph Preview](app/static/images/UrbanNestWebsite1.png)
+
 ## 👨‍💻 Author
 
 **Sunil Prajapati**<br>
