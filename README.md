@@ -17,50 +17,6 @@ This project is designed with **production‑grade architecture** and deployed l
 |                                 |   Latest approved properties on home page        |            |                                                 | Secure configuration management |             |
 
 
-### 🔐 Authentication & Authorization
-
-* User registration and login
-* Secure password hashing
-* Session‑based authentication using **Flask‑Login**
-* Role‑based access (User / Admin)
-
-### 🏘️ Property Management
-
-* Add, edit, delete property listings
-* Upload and manage property images
-* Property categories: Buy / Sell / Rent
-* Admin approval system before public visibility
-* Latest approved properties on home page
-
-### 🧑‍💼 Admin Dashboard
-
-* View all users
-* Approve or reject properties
-* Manage platform content securely
-
-### 🎨 UI / UX
-
-* Modern, clean, responsive layout
-* Jinja2 templating with reusable components
-* User‑friendly navigation and forms
-* Optimized for recruiters and portfolio viewers
-
-### ⚙️ Backend Architecture
-
-* Flask **Application Factory Pattern**
-* Blueprint‑based modular routing
-* SQLAlchemy ORM
-* WTForms with validation
-* Secure configuration management
-
-### ☁️ Deployment
-
-* Production server: **Gunicorn**
-* Hosting: **Render (Free Tier)**
-* Environment‑based configuration
-
----
-
 ## 🗂️ Project Folder Structure
 
 ```text
