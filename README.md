@@ -10,7 +10,7 @@ This project is designed with **production‑grade architecture** and deployed l
 
 | **🔐 Authentication & Authorization**      |**🏘️ Property Management**          |**🧑‍💼 Admin Dashboard**| **🎨 UI / UX**                  |**⚙️ Backend Architecture**         | **☁️ Deployment**       | 
 |-------------------------------------------- | ---------------------------------- | -----------------------------------|----------------------|-----------------------------------|--------------------------|
-|User registration and login |Add, edit, delete property listings |View all users |Modern, clean, responsive layout   |Flask **Application Factory Pattern**    | Production server: **Gunicorn**        |
+|User registration and login |Add, edit, delete property listings |View all users(UnderProcess) |Modern, clean, responsive layout   |Flask **Application Factory Pattern**    | Production server: **Gunicorn** |
 |Secure password hashing |Upload and manage property images |Approve or reject properties| Jinja2 templating with reusable components|Blueprint‑based modular routing|Hosting: **Render (Free Tier)**|
 |Session‑based authentication using **Flask‑Login** |Property categories: Buy / Sell / Rent| Manage platform content securely |User‑friendly navigation and forms|SQLAlchemy ORM|Environment‑based configuration  |
 |Role‑based access (User / Admin) |  Admin approval system before public visibility  |            |  Optimized for recruiters and portfolio viewers |   WTForms with validation| team_analysis_report.txt|
