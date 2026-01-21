@@ -134,94 +134,46 @@ if __name__ == "__main__":
 📌 Important Note on Live Demo & Data Persistence
 
 This project (UrbanNest) is deployed on Render Free Tier for demonstration purposes.
-
 🔄 Why properties may not appear on the live site
-
 The current live deployment uses:
-
-Flask + SQLite
-
-Render Free Web Service
+    Flask + SQLite
+    Render Free Web Service
 
 Render’s free tier uses an ephemeral filesystem, which means:
-
-Any locally stored files (including SQLite databases and uploaded images)
-
-Are reset whenever the service sleeps, restarts, or redeploys
+    Any locally stored files (including SQLite databases and uploaded images)
+    Are reset whenever the service sleeps, restarts, or redeploys
 
 As a result:
-
-Properties uploaded during one session may not persist
-
-After inactivity or redeploy, the site may appear empty (fresh state)
+    Properties uploaded during one session may not persist
+    After inactivity or redeploy, the site may appear empty (fresh state)
 
 ⚠️ This is expected platform behavior, not a bug in the application.
-
 🧩 Template & Reusability Statement
 
 UrbanNest is intentionally designed as a clean, modular Flask template that can be reused and extended.
-
 Anyone can:
-
-Clone this repository
-
-Configure their own database (SQLite with persistent disk or PostgreSQL)
-
-Deploy it on any hosting platform
-
-Customize UI, features, and workflows for personal or commercial use
+    Clone this repository
+    Configure their own database (SQLite with persistent disk or PostgreSQL)
+    Deploy it on any hosting platform
+    Customize UI, features, and workflows for personal or commercial use
 
 This repository focuses on:
-
-Architecture
-
-Code quality
-
-Feature completeness
-
-UI/UX flow
-
-rather than persistent demo data.
+    Architecture | Code quality | Feature completeness | UI/UX flow | rather than persistent demo data.
 
 👀 How to Evaluate My Work
-
 To properly review the project:
-
-📸 Screenshots show the complete UI and workflows
-
-🎥 Demo videos demonstrate:
-
-Property upload
-
-Authentication
-
-Profile management
-
-Property listing & detail views
+    📸 Screenshots show the complete UI and workflows
+    🎥 Demo videos demonstrate: Property upload | Authentication | Profile management | Property listing & detail views
 
 🧠 Codebase demonstrates:
+    Flask app factory pattern | Blueprint-based routing | SQLAlchemy ORM usage | Authentication & authorization | Clean separation of concerns
 
-Flask app factory pattern
+👉 Please use the screenshots, videos and source code in this repository as the primary evaluation material.
 
-Blueprint-based routing
-
-SQLAlchemy ORM usage
-
-Authentication & authorization
-
-Clean separation of concerns
-
-👉 Please use the screenshots, videos, and source code in this repository as the primary evaluation material.
-
-🚀 For Full Persistence (Optional)
-
+🚀 For Full Persistence (Instructions)
 To run this project as a fully persistent production app:
-
-Attach a persistent disk on Render or
-
-Configure a PostgreSQL database
-
-Detailed setup steps are documented in the repository.
+    Attach a persistent disk on Render or
+    Configure a PostgreSQL database
 ```
 
 ## 👨‍💻 Author
