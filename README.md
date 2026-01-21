@@ -56,49 +56,58 @@ This project is designed with **production‑grade architecture** and deployed l
 
 ```text
 UrbanNest_Flask/
-│
-├── app/
-│   ├── __init__.py          # App factory & extension initialization
-│   ├── models.py            # Database models
-│   ├── runtime.txt          # Python runtime for deployment
-│   │
-│   ├── auth/                # Authentication blueprint
-│   │   ├── routes.py
-│   │   └── forms.py
-│   │
-│   ├── main/                # Main site routes
-│   │   └── routes.py
-│   │
-│   ├── admin/               # Admin dashboard
-│   │   └── routes.py
-│   │
-│   ├── property/            # Property management
-│   │   ├── routes.py
-│   │   └── forms.py
-│   │
-│   ├── templates/           # Jinja2 templates
-│   │   ├── base.html
-│   │   ├── home.html
-│   │   ├── login.html
-│   │   ├── register.html
-│   │   ├── property/
-│   │   └── admin/
-│   │
-│   ├── static/              # Static assets
-│   │   ├── css/
-│   │   ├── js/
-│   │   └── images/
-│
-├── instance/
-│   └── urbannest.db         # SQLite database (local/demo)
-│
+│           
+├───app
+│   │   forms.py            
+│   │   models.py           # Database models
+│   │   __init__.py         # App factory & extension initialization
+│   │   
+│   ├───routes              
+│   │   │───auth.py         # Authentication blueprint
+│   │   │───main.py         # Main site routes
+│   │   │───profile.py      # Admin dashboard
+│   │   │───property.py     # Property management
+│   │             
+│   ├───static              # Static assets
+│   │   ├───css
+│   │   │       style.css
+│   │   │       
+│   │   ├───images
+│   │   │       logo.png
+│   │   │       
+│   │   ├───js
+│   │   │       location.js
+│   │   │       
+│   │   ├───profile_pics
+│   │   │       default.png     
+│   │   │       
+│   │   └───uploads          
+│   │           
+│   ├───templates            # Jinja2 templates
+│   │   ├───add_property.html
+│   │   ├───base.html
+│   │   ├───edit_profile.html
+│   │   ├───home.html
+│   │   ├───login.html
+│   │   ├───profile.html
+│   │   ├───property_detail.html
+│   │   ├───property_list.html
+│   │   ├───register.html
+│   │   ├───unverified_properties.html
+│   │   ├───update_property.html
+│   │   ├───view_property.html
+│                     
+│           
+├───instance
+│       ├───urbannest.db     # SQLite database (local/demo)
+│ 
 ├── config.py                # App configuration
 ├── requirements.txt         # Dependencies
 ├── run.py                   # Entry point
+├── runtime.txt              # Python runtime for deployment
 ├── .gitignore
 └── README.md
 ```
-
 ---
 
 ## 🧠 Core Files & Their Responsibilities
